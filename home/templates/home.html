@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="content_wrapper" id="app">
+	<div v-if="infos.city">
+		<h1>
+			Weather
+			<div class="date">{{today}}</div>
+		</h1>
+		<form class="" method="get">
+			<input class="form-control" name="city">
+			<button class="btn" type="submit">Submit</button>
+		</form>
+
+		<div class="weather_card">
+			<div class="weather_card_img" :style="{backgroundImage:https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjPrambk6hI6FFChcdykHMwh6IQB-avxO-l0gWpm4_WAf4Vk-Pg5fxhFv6-Bxif6kXyFE&usqp=CAU{{data.icon}}}.png">
+				<div class="weather_card_state">
+					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjPrambk6hI6FFChcdykHMwh6IQB-avxO-l0gWpm4_WAf4Vk-Pg5fxhFv6-Bxif6kXyFE&usqp=CAU{{data.icon}}}.png">"
+					<span class="material-icons">
+					</span>
+				</div>
+			</div>
+
+			<div class="weather_card_infos">
+				<div class="weather_card_infos_title">
+				{{data.city}}
+				<br/>
+				{{data.description}}	
+				</div>
+				<div class="weather_card_infos_temp">
+					{{data.celcius_temperature}}°C /{{data.kelvin_temperature}} °K
+				</div>
+				<div class="bottom">
+					<div class="weather_card_infos_bottom">
+						humidity:{{data.humidity}}- pressure:{{data.pressure}}pa
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock  %}
